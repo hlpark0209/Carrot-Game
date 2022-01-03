@@ -1,0 +1,103 @@
+body{
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+    background: url('./imgs/background.png') center/cover no-repeat;
+}
+
+
+.container{
+    
+}
+
+
+
+/* ongoing */
+.ongoing{
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    height: 50vh;
+}
+
+.play, .timer, .counter, .replay{
+    border: 5px solid #1a1a1a;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 20px auto;
+}
+
+.play{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: red;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.fa-play{
+    font-size: 28px;
+    color: #fff;
+}
+
+.timer{
+    width: 200px;
+    height: 70px;
+    background:#fff;
+    line-height: 70px;
+    border-radius: 10px;
+    color: #1a1a1a;
+    font-size: 22px;
+}
+.counter{
+    width: 80px;
+    height: 80px;
+    background:lightcoral;
+    line-height: 80px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+/* popup */
+.popup__layer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 560px;
+    height: 225px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 500px;
+    background: transparent;
+    text-align: center;
+    border-radius: 10px;
+    padding: 40px 30px;
+}
+
+.statusText{
+    font-size: 35px;
+    color: #fff;
+}
+.replay{
+    width: 90%;
+    height: 70px;
+    line-height: 65px;
+    background: rgb(233, 233, 233);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 32px;
+    margin-top: 30px;
+}
+.fa-stop{
+    color: #1a1a1a;
+}
