@@ -4,8 +4,8 @@ const field = document.querySelector('.gameField');
 const fieldRect = field.getBoundingClientRect();
 const carrotSize = 80;
 const playBtn = document.querySelector('.play');
+const timerBtn = document.querySelector('.timer');
 
-// const timerBtn = document.querySelector('.timer');
 // const counterBtn = document.querySelector('.counter');
 
 
@@ -39,7 +39,7 @@ playBtn.addEventListener('click', function() {
             item.style.left = `${x}px`;
             item.style.top = `${y}px`;
             field.appendChild(item);
-            console.log(item);
+            // console.log(item);
         }
 
     }
@@ -49,10 +49,9 @@ playBtn.addEventListener('click', function() {
 
     gamePlay();
 
-    //2. 카운트다운 시작
-    function timer() {
-        console.log('hi');
-    }
-    timer();
+    //2. 타이머 시작
+    const count = 10;
     
+
+
 }, { once : true} );
