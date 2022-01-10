@@ -1,13 +1,58 @@
 'use strict';
 
-const playBtn = document.querySelector('.play');
-const timerBtn = document.querySelector('.timer');
-const counterBtn = document.querySelector('.counter');
+const field = document.querySelector('.gameField');
+const fieldRect = field.getBoundingClientRect();
+const carrotSize = 80;
 
-// playBtn을 클릭했을때
+
+// const playBtn = document.querySelector('.play');
+// const timerBtn = document.querySelector('.timer');
+// const counterBtn = document.querySelector('.counter');
+
+
+
 // 1. 랜덤으로 벌레와 당근 배치
 // 2. 카운트다운 시작
 // 3. 남은 당근갯수 10부터 시작
 
 
-//
+function gamePlay () {
+    // 벌레와 당근을 생성한 뒤 field에 추가
+    addiItem('carrot', 5, 'imgs/carrot.png');
+    addiItem('bug', 5, 'imgs/bug.png');
+}
+
+function addiItem(name, count, img){
+    const x1 = 0;
+    const y1 = 0;
+    const x2 = fieldRect.width - carrotSize;
+    const y2 = fieldRect.height - carrotSize;
+    for(let i = 0; i < count; i++){
+        const item = document.createElement('img');
+        item.setAttribute('class', name );
+        item.setAttribute('src', img);
+        item.style.position = 'absolute';
+        
+        const x = randomNumber(x1, x2);
+        const y = randomNumber(y1, y2);
+        item.style.left = `${x}px`;
+        item.style.top = `${y}px`;
+        field.appendChild(item);
+        console.log(item);
+
+    }
+
+}
+
+function randomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// playBtn을 클릭했을때 실행
+
+
+
+
+
+
+gamePlay();
