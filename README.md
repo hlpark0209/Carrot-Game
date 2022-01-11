@@ -3,11 +3,19 @@
 
 ## 📅 Project Name : Carrot-Game
 * html/css/vanilla javascript로 만든 당근게임 입니다.
+* 
 
 <br/>
 
 ## 📱 Preview
 
+
+<br/>
+
+## 📱 Play the Game!
+```
+
+```
 
 <br/>
 
@@ -21,11 +29,24 @@
 
 ## ⌨️ Using Skills
 ```
+* JAVASCRIPT
 * HTML
 * CSS
 * JAVASCRIPT
 ```
 <br/>
+
+
+## ☑️ How to Play
+```
+1. 재생 버튼 클릭하세요.
+2. 20초 내에 6개의 모든 carrot 제거해 주세요.
+3. 주어진 시간안에 모두 제거했다면 승리!
+4. bug를 제거하거나 시간이 초과되었을 경우 실패!
+
+```
+<br/>
+
 
 ## 📑 Functional List
 ```
@@ -54,6 +75,8 @@
 
 ## ☑️ Improvements
 ```
-
+ * 난이도에 따른 게임 레벨 지정
+ * 코드 리팩토링 필요 ( class 별로 )
+ * 기타 버그 수정
 ```
 <br/>
