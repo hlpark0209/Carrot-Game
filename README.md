@@ -7,6 +7,14 @@
 <br/>
 
 ## 📱 Preview
+- 게임중 화면
+<img src="https://user-images.githubusercontent.com/39701029/148990930-2094f67d-da31-40e3-b6cf-36e1918be642.jpg" width="70%">
+
+- 'You Win🎉' 화면
+<img src="https://user-images.githubusercontent.com/39701029/148990930-2094f67d-da31-40e3-b6cf-36e1918be642.jpg" width="70%">
+
+- 'Try Aagin😥' 화면
+<img src="https://user-images.githubusercontent.com/39701029/148990930-2094f67d-da31-40e3-b6cf-36e1918be642.jpg" width="70%">
 
 
 <br/>
