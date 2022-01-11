@@ -15,7 +15,7 @@ const replayBtn = document.querySelector('.replay');
 const carrotSize = 80;
 const carrotCount = 10;
 const bugCount = 5;
-const gameDuration = 10;
+const gameDuration = 5;
 
 //게임이 시작되었는지 알고있는 변수
 let started = false;
@@ -26,6 +26,32 @@ let time = undefined;
 
 
 
+field.addEventListener('click', onFiledClick);
+
+function onFiledClick(e){
+    if(!started){
+        return;
+    } 
+    const target = e.target;
+    if(target.matches('.carrot')){
+        // 당근
+        target.remove();
+        score ++;
+        updateScore();
+        if( carrotCount - score === 0 ){
+            stopGameTimer();
+            showTextReply("You Win🎉");
+        }
+    } else if(target.matches('.bug')){
+        // 벌래
+        stopGameTimer();
+        showTextReply("Try Aagin😥");
+    }
+}
+function updateScore(){
+    counterBtn.innerHTML = carrotCount - score;
+};
+
 
 // playBtn을 클릭했을때 실행
 playBtn.addEventListener('click', () => {
@@ -34,27 +60,27 @@ playBtn.addEventListener('click', () => {
     }else{
         startGame();
     }
-    started = !started;
 });
 
 
 function startGame(){
+    started = true;
     gamePlay();
     showStopBtn();
     showTimerAndCounter();
     startGameTimer();
-    catchCarrot();
 }
 
 //게임 중지
 function stopGame(){
+    started = false;
     stopGameTimer();
     hideGameButton();
     showTextReply("Try Aagin😥");
 }
 
     function showStopBtn() {
-        const icon = playBtn.querySelector('.fa-play');
+        const icon = playBtn.querySelector('.fas');
         icon.classList.add('fa-stop');
         icon.style.color = '#fff';
         icon.classList.remove('fa-play');
@@ -65,20 +91,10 @@ function stopGame(){
     }
 
 // 게임 재실행
-    function replayGame(){
-            replayBtn.addEventListener('click', () => {
-            playBtn.style.visibility = 'visible';
-            const stop = playBtn.querySelector('.fa-stop');
-            stop.classList.remove('fa-stop');
-            stop.classList.add('fa-play');
+        replayBtn.addEventListener('click', () => {
+            startGame();
             popupField.classList.add('popup-hide');
-            gamePlay ();
-            showTimerAndCounter();
-            startGameTimer();
-
         });
-    }
-    replayGame();
 
 
     // timer 실행
@@ -93,6 +109,8 @@ function stopGame(){
         time = setInterval( () => {
             if( remaininTimeSec <= 0 ){
                 clearInterval(time);
+                stopGameTimer();
+                showTextReply("Try Aagin😥");
                 return;
             }
             updateTimerText(--remaininTimeSec);
@@ -135,8 +153,6 @@ function stopGame(){
         addiItem('bug', bugCount, 'imgs/bug.png');
     }
 
-    function catchCarrot(bug, carrot){
-    }
 
     function addiItem(name, count, img){
         const x1 = 0;
