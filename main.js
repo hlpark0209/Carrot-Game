@@ -6,9 +6,16 @@ const fieldRect = field.getBoundingClientRect();
 const playBtn = document.querySelector('.play');
 const timerBtn = document.querySelector('.timer');
 const counterBtn = document.querySelector('.counter');
+
+const popupField = document.querySelector('.popup__wrap');
+const popupText = document.querySelector('.statusText');
+const popupReplay = document.querySelector('.replay');
+
+
 const carrotSize = 80;
 const carrotCount = 10;
 const bugCount = 5;
+const gameDuration = 10;
 
 //게임이 시작되었는지 알고있는 변수
 let started = false;
@@ -24,26 +31,28 @@ let time = undefined;
 // playBtn을 클릭했을때 실행
 playBtn.addEventListener('click', () => {
     if (started){
-        stopGame();
+        stopGame(); 
     }else{
         startGame();
     }
-    
+    started = !started;
 });
 
 
-function stopGame(){
-    
-}
 
 function startGame(){
     gamePlay();
     showStopBtn();
     showTimerAndCounter();
+    startGameTimer();
 }
 
-
-
+//게임 중지
+function stopGame(){
+    stopGameTimer();
+    hideGameButton();
+    showTextReply("Try Aagin😥");
+}
 
     function showStopBtn() {
         const icon = playBtn.querySelector('.fa-play');
@@ -52,12 +61,48 @@ function startGame(){
         icon.classList.remove('fa-play');
     }
 
+    function hideGameButton(){
+        playBtn.style.visibility = 'hidden';
+    }
+
+    // timer 실행
     function showTimerAndCounter() {
         timerBtn.style.visibility = 'visible';
         counterBtn.style.visibility = 'visible';
     }
 
-    function gamePlay (e) {
+    function startGameTimer(){
+        let remaininTimeSec = gameDuration;
+        updateTimerText(remaininTimeSec);
+        time = setInterval( () => {
+            if( remaininTimeSec <= 0 ){
+                clearInterval(time);
+                return;
+            }
+            updateTimerText(--remaininTimeSec);
+        }, 1000);
+    }
+
+    
+    // timer 중지
+    function stopGameTimer(){
+        clearInterval(time);
+        popupField.classList.remove('popup-hide');
+    }
+
+    function updateTimerText(times) {
+        const min = Math.floor( times / 60 );
+        const sec = times % 60;
+        timerBtn.innerHTML = `${min}:${sec}`;
+    }
+
+    function showTextReply(text){
+        popupText.innerHTML = text;
+    }
+
+
+
+    function gamePlay () {
         // 클릭할 때마다 item이 계속 추가되는것을 방지
         field.innerHTML = "";
         counterBtn.innerHTML = carrotCount;
