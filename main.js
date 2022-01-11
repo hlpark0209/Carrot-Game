@@ -9,7 +9,7 @@ const counterBtn = document.querySelector('.counter');
 
 const popupField = document.querySelector('.popup__wrap');
 const popupText = document.querySelector('.statusText');
-const popupReplay = document.querySelector('.replay');
+const replayBtn = document.querySelector('.replay');
 
 
 const carrotSize = 80;
@@ -27,7 +27,6 @@ let time = undefined;
 
 
 
-
 // playBtn을 클릭했을때 실행
 playBtn.addEventListener('click', () => {
     if (started){
@@ -39,12 +38,12 @@ playBtn.addEventListener('click', () => {
 });
 
 
-
 function startGame(){
     gamePlay();
     showStopBtn();
     showTimerAndCounter();
     startGameTimer();
+    catchCarrot();
 }
 
 //게임 중지
@@ -64,6 +63,23 @@ function stopGame(){
     function hideGameButton(){
         playBtn.style.visibility = 'hidden';
     }
+
+// 게임 재실행
+    function replayGame(){
+            replayBtn.addEventListener('click', () => {
+            playBtn.style.visibility = 'visible';
+            const stop = playBtn.querySelector('.fa-stop');
+            stop.classList.remove('fa-stop');
+            stop.classList.add('fa-play');
+            popupField.classList.add('popup-hide');
+            gamePlay ();
+            showTimerAndCounter();
+            startGameTimer();
+
+        });
+    }
+    replayGame();
+
 
     // timer 실행
     function showTimerAndCounter() {
@@ -87,7 +103,7 @@ function stopGame(){
     // timer 중지
     function stopGameTimer(){
         clearInterval(time);
-        popupField.classList.remove('popup-hide');
+        
     }
 
     function updateTimerText(times) {
@@ -98,7 +114,14 @@ function stopGame(){
 
     function showTextReply(text){
         popupText.innerHTML = text;
+        popupField.classList.remove('popup-hide');
     }
+
+
+    
+
+
+
 
 
 
@@ -110,6 +133,9 @@ function stopGame(){
         // 1. 벌레와 당근을 생성한 뒤 field에 랜덤으로 추가
         addiItem('carrot', carrotCount, 'imgs/carrot.png');
         addiItem('bug', bugCount, 'imgs/bug.png');
+    }
+
+    function catchCarrot(bug, carrot){
     }
 
     function addiItem(name, count, img){
@@ -130,11 +156,13 @@ function stopGame(){
             field.appendChild(item);
             // console.log(item);
         }
-
     }
+
     function randomNumber(min, max) {
         return Math.random() * (max - min) + min;
     }
+
+    
 
 
 
