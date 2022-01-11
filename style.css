@@ -27,6 +27,9 @@ button{
     margin: 20px auto;
     transition: all 0.2s;
 }
+.timer, .counter{
+    visibility: hidden;
+}
 
 .play{
     width: 80px;
