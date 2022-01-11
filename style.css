@@ -27,9 +27,9 @@ button{
     margin: 20px auto;
     transition: all 0.2s;
 }
-.timer, .counter{
+/* .timer, .counter{
     visibility: hidden;
-}
+} */
 
 .play{
     width: 80px;
@@ -59,6 +59,8 @@ button{
     border-radius: 10px;
     color: #1a1a1a;
     font-size: 22px;
+    user-select: none;
+    cursor: auto;
 }
 .counter{
     width: 80px;
@@ -67,6 +69,8 @@ button{
     line-height: 80px;
     border-radius: 50%;
     color: #fff;
+    user-select: none;
+    cursor: auto;
 }
 
 /* gameField */
@@ -76,6 +80,14 @@ button{
     height:50vh;
 }
 
+.carrot, .bug{
+    transition: transform 0.1s ease-in;
+}
+
+.carrot:hover, .bug:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
 /* popup */
 .popup__layer{
@@ -114,6 +126,9 @@ button{
     cursor: pointer;
     font-size: 32px;
     margin-top: 30px;
+}
+.replay:hover{
+    transform: scale(1.1);
 }
 .fa-stop{
     color: #1a1a1a;

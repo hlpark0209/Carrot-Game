@@ -13,9 +13,16 @@ const replayBtn = document.querySelector('.replay');
 
 
 const carrotSize = 80;
-const carrotCount = 10;
-const bugCount = 5;
-const gameDuration = 5;
+const carrotCount = 6;
+const bugCount = 6;
+const gameDuration = 20;
+
+const carrotSound = new Audio('./sound/carrot_pull.mp3');
+const bugSound = new Audio('./sound/bug_pull.mp3');
+const alertSound = new Audio('./sound/alert.wav');
+const winSound = new Audio('./sound/game_win.mp3');
+const bgSound = new Audio('./sound/bg.mp3');
+
 
 //게임이 시작되었는지 알고있는 변수
 let started = false;
@@ -37,15 +44,23 @@ function onFiledClick(e){
         // 당근
         target.remove();
         score ++;
+        playSound(carrotSound);
         updateScore();
-        if( carrotCount - score === 0 ){
+        if( score === carrotCount ){
             stopGameTimer();
             showTextReply("You Win🎉");
+            playSound(winSound);
+            stopSound(bgSound);
+            hideGameButton();
         }
     } else if(target.matches('.bug')){
-        // 벌래
+        // 벌레
         stopGameTimer();
+        playSound(bugSound);
         showTextReply("Try Aagin😥");
+        playSound(alertSound);
+        stopSound(bgSound);
+        hideGameButton();
     }
 }
 function updateScore(){
@@ -69,6 +84,7 @@ function startGame(){
     showStopBtn();
     showTimerAndCounter();
     startGameTimer();
+    playSound(bgSound);
 }
 
 //게임 중지
@@ -77,6 +93,8 @@ function stopGame(){
     stopGameTimer();
     hideGameButton();
     showTextReply("Try Aagin😥");
+    playSound(alertSound);
+    stopSound(bgSound);
 }
 
     function showStopBtn() {
@@ -87,14 +105,17 @@ function stopGame(){
     }
 
     function hideGameButton(){
-        playBtn.style.visibility = 'hidden';
+        playBtn.style.visibility = 'visible';
+        const icon = playBtn.querySelector('.fas');
+        icon.classList.add('fa-play');
+        icon.classList.remove('fa-stop');
     }
 
 // 게임 재실행
-        replayBtn.addEventListener('click', () => {
-            startGame();
-            popupField.classList.add('popup-hide');
-        });
+    replayBtn.addEventListener('click', () => {
+        startGame();
+        popupField.classList.add('popup-hide');
+    });
 
 
     // timer 실행
@@ -111,6 +132,8 @@ function stopGame(){
                 clearInterval(time);
                 stopGameTimer();
                 showTextReply("Try Aagin😥");
+                playSound(alertSound);
+                stopSound(bgSound);
                 return;
             }
             updateTimerText(--remaininTimeSec);
@@ -135,6 +158,16 @@ function stopGame(){
         popupField.classList.remove('popup-hide');
     }
 
+    // play soound
+    function playSound(sound){
+        sound.play();
+    }
+
+    // stop sound
+    function stopSound(sound){
+        sound.pause();
+        sound.currentTime = 0;
+    }
 
     
 
@@ -145,6 +178,7 @@ function stopGame(){
 
     function gamePlay () {
         // 클릭할 때마다 item이 계속 추가되는것을 방지
+        score = 0;  
         field.innerHTML = "";
         counterBtn.innerHTML = carrotCount;
 
