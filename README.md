@@ -11,39 +11,32 @@
 
 <br/>
 
-## 📱 Play the Game!
-```
-
-```
+## ▶ Play the Game!
+- 
 
 <br/>
 
 ## 🎨 UI Design Concept
-```
 * bg, bug, carrot 아이콘 사용
 * 전체화면으로 게임 진행
 * 재생/정지 버튼, 타이머, 카운트다운은 html, css로 구현
-```
 <br/>
 
+
 ## ⌨️ Using Skills
-```
-* JAVASCRIPT
 * HTML
 * CSS
 * JAVASCRIPT
-```
+
 <br/>
 
 
 ## ☑️ How to Play
-```
 1. 재생 버튼 클릭하세요.
 2. 20초 내에 6개의 모든 carrot 제거해 주세요.
 3. 주어진 시간안에 모두 제거했다면 승리!
 4. bug를 제거하거나 시간이 초과되었을 경우 실패!
-
-```
+5. 
 <br/>
 
 
@@ -73,9 +66,10 @@
 <br/>
 
 ## ☑️ Improvements
-```
- * 난이도에 따른 게임 레벨 지정
+
+ * 게임 레벨에 따른 난이도를 상이하게 재구성
  * 코드 리팩토링 필요 ( class 별로 )
  * 기타 버그 수정
-```
+
 <br/>
+
