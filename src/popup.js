@@ -9,8 +9,8 @@ export default class PopUp {
         this.popupText = document.querySelector('.statusText');
         this.replayBtn = document.querySelector('.replay');
         this.replayBtn.addEventListener('click', () => {
-            this.onClick && this.onClick();
-            hide();
+        this.onClick && this.onClick();
+        this.hide();
         });
     }
     // 팝업이 클릭될 때마다 그 등록된 콜백함수를 호출
