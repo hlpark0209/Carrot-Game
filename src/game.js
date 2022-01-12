@@ -1,7 +1,7 @@
 'use strict';
 
 import * as sound from './sound.js';
-import Field from './field.js';
+import { Field, ItemType } from './field.js';
 
 //builder pattern
 export default class GameBuilder{
@@ -90,7 +90,7 @@ class Game{
         if(!started){
             return;
         } 
-        if(item === 'carrot'){
+        if(item === ItemType.carrot){
             this.score++;
             this.updateScore();
             if( this.score === this.carrotCount ){
@@ -99,7 +99,7 @@ class Game{
                 this.hideGameButton();
                 this.sound.bgSound();
             }
-        } else if(item === 'bug'){
+        } else if(item === ItemType.bug){
             this.stopGameTimer();
             this.playSound(bugSound);
             this.playSound(alertSound);
