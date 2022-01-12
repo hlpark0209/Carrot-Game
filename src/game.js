@@ -4,7 +4,7 @@ import * as sound from './sound.js';
 import Field from './field.js';
 
 //builder pattern
-export class GameBuilder{
+export default class GameBuilder{
     gameDuration(duration){
         this.gameDuration = duration;
         return this;
@@ -18,7 +18,13 @@ export class GameBuilder{
         this.bugCount = num;
         return this;
     }
-    build(){}
+    build(){
+        return new Game(
+            this.gameDuration,
+            this.carrotCount,
+            this.bugCount,
+        )
+    }
 
 }  
 

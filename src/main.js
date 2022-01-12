@@ -1,7 +1,7 @@
 'use strict';
 
 import PopUp from './popup.js';
-import Game from './game.js';
+import GameBuilder from './game.js';
 
 
 
@@ -16,8 +16,14 @@ let time = undefined;
 //popup class 생성
 const gameFinishBanner = new PopUp();
 
+//builder 패턴을 이용해서 object를 가독성 있게 설정 가능
+const game = new GameBuilder()
+    .gameDuration(20)
+    .carrotCount(7)
+    .bugCount(7)
+    .build();
 
-const game = new Game(10, 20, 20);
+// const game = new Game(10, 20, 20);
 game.setGameStopListener((reason) => {
     // console.log(reason);
     let meg ;
