@@ -1,5 +1,7 @@
 'use strict';
 
+import PopUp from './popup.js';
+
 // 요소 정의
 const field = document.querySelector('.gameField');
 const fieldRect = field.getBoundingClientRect();
@@ -8,9 +10,6 @@ const playBtn = document.querySelector('.play');
 const timerBtn = document.querySelector('.timer');
 const counterBtn = document.querySelector('.counter');
 
-const popupField = document.querySelector('.popup__wrap');
-const popupText = document.querySelector('.statusText');
-const replayBtn = document.querySelector('.replay');
 
 // 값 초기화
 const carrotSize = 80;
@@ -34,6 +33,11 @@ let score = 0;
 let time = undefined;
 
 
+//class 생성
+const gameFinishBanner = new PopUp();
+gameFinishBanner.setClickListener( () => {
+    startGame();
+});
 
 // 게임 재생
 playBtn.addEventListener('click', () => {
@@ -63,7 +67,8 @@ function stopGame(){
     started = false;
     stopGameTimer();
     hideGameButton();
-    showTextReply("Try Aagin😥");
+    gameFinishBanner.showTextReply("Try Aagin😥");
+    // showTextReply("Try Aagin😥");
     playSound(alertSound);
     stopSound(bgSound);
 }
@@ -86,12 +91,14 @@ function stopGame(){
 
 
 // 게임 재실행
-    replayBtn.addEventListener('click', () => {
-        startGame();
-        popupField.classList.add('popup-hide');
-    });
+    // replayBtn.addEventListener('click', () => {
+    //     startGame();
+    // });
 
-
+    // function showTextReply(text){
+    //     popupText.innerHTML = text;
+    //     popupField.classList.remove('popup-hide');
+    // }
 
 
     // timer 실행
@@ -131,10 +138,7 @@ function stopGame(){
         timerBtn.innerHTML = `${min}:${sec}`;
     }
 
-    function showTextReply(text){
-        popupText.innerHTML = text;
-        popupField.classList.remove('popup-hide');
-    }
+
 
     
 
