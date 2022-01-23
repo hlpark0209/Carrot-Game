@@ -20,7 +20,7 @@
 <br/>
 
 ## 🕹️ Play the Game!
-- [ Play the Game!▶](https://hlpark0209.github.io/Carrot-Game-in-javascript/)
+- [ Play the Game!▶](https://hlpark0209.github.io/Carrot-Game/index.html)
 
 <br/>
 
