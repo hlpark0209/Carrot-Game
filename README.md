@@ -6,6 +6,11 @@
 
 <br/>
 
+## 📅 Working Period
+* 2022. 01. 10. ~ 2022. 01. 12.
+
+<br/>
+
 ## 📱 Preview
 - 게임실행 화면
 <img src="https://user-images.githubusercontent.com/39701029/148992463-aad377b3-bec6-4bfd-8df8-ef2547a70c4d.jpg" width="70%">
