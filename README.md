@@ -2,10 +2,6 @@
 ## 📖 Project Name : Carrot-Game
 * html/css/vanilla javascript로 만든 당근캐치 게임 입니다.
 
-<br/>
-
-## 📅 Working Period
-* 2022.01.10. ~ 2022.01.12.
  
 <br/>
 
